@@ -8,6 +8,11 @@ body {
 	width: 100%;
 	overflow-x: hidden;
 }
+img {
+    width: 100%;
+	max-width: 300px;
+	max-height: 300px;
+}
 
 .main-container {
 	min-height: calc(100vh - 136px);

@@ -1,56 +1,47 @@
 package com.devrezaur.main.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
 import org.springframework.stereotype.Component;
-
+import javax.persistence.*;
 @Component
 @Entity
 @Table(name = "results")
 public class Result {
-
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
-	private String username;
-	private int totalCorrect = 0;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+    private String username;
+    private Integer totalCorrect = 0;
+    public Result() {
 
-	public Result() {
-		super();
-	}
+    }
+    public Result(Integer id, String username, int totalCorrect) {
+        this.id = id;
+        this.username = username;
+        this.totalCorrect = totalCorrect;
+    }
 
-	public Result(int id, String username, int totalCorrect) {
-		super();
-		this.id = id;
-		this.username = username;
-		this.totalCorrect = totalCorrect;
-	}
+    public Integer getId() {
+        return id;
+    }
 
-	public int getId() {
-		return id;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public String getUsername() {
+        return username;
+    }
 
-	public String getUsername() {
-		return username;
-	}
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
-	public void setUsername(String username) {
-		this.username = username;
-	}
+    public Integer getTotalCorrect() {
+        return totalCorrect;
+    }
 
-	public int getTotalCorrect() {
-		return totalCorrect;
-	}
-
-	public void setTotalCorrect(int totalCorrect) {
-		this.totalCorrect = totalCorrect;
-	}
+    public void setTotalCorrect(Integer totalCorrect) {
+        this.totalCorrect = totalCorrect;
+    }
 
 }

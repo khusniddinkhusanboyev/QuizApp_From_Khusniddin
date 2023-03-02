@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <link rel="stylesheet" th:href="@{/css/index.css}">
+  <title>Home Page</title>
+</head>
+<body>
+
+<!-- Importing NavBar -->
+<div th:insert="navbar.html :: navbar"></div>
+
+<!-- Main Container Start -->
+<div class="main-container container py-5 px-4">
+  <div class="image-box">
+    <img th:src="@{/images/exam.svg}" alt="image">
+  </div>
+  <div class="text-box">
+    <h1 class="mb-5 text-center">Add Quiz</h1>
+
+    <form th:action="@{admin/questions}" enctype="multipart/form-data" th:object="${new_ques}" th:method="post" class="card bg-dark py-5 px-4" >
+      <!--<input type="file" id="image-upload" accept="image/*">-->
+    <!-- <img id="image-preview" hidden="hidden" class="p-2" src="#" width="200px" height="200px"/>
+     <input type="file" class="form-control" th:field="*{imageUrl}" id="image-upload" accept="image/*" name="image"/>
+   -->   <!-- <input type="text" class="form-control" th:field="*{title}"  name="title"/>
+    -->
+      <div class="form-floating">
+        <textarea type="text" class="form-control" th:field="*{title}" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+        <label for="floatingTextarea2">Question</label>
+      </div>
+      <hr>
+
+      <div class="input-group">
+        <input type="text" th:field="*{optionA}" name="a" aria-label="a" placeholder="input a..." class="form-control">
+        <input type="text" th:field="*{optionB}" name="b" aria-label="b" placeholder="input b..." class="form-control">
+        <input type="text" th:field="*{optionC}" name="c" aria-label="c" placeholder="input c..." class="form-control">
+        <input type="text" th:field="*{optionD}" name="d" aria-label="d" placeholder="input d..." class="form-control">
+      </div>
+
+      <input type="number" class="form-control" th:field="*{ans}" placeholder="input answer of quiz..." name="answer"/>
+
+      <p class="text-danger warning" th:if="${warning}" th:text="${warning}"></p>
+      <button type="submit" class="btn btn-outline-warning">Add To DataBase</button>
+    </form>
+  </div>
+</div>
+
+
+<script>
+  const inputElement = document.getElementById("image-upload");
+  const previewElement = document.getElementById("image-preview");
+
+  inputElement.addEventListener("change", (event) => {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+
+    reader.addEventListener("load", (event) => {
+      const imageUrl = event.target.result;
+      previewElement.src = imageUrl;
+      previewElement.hidden = false;
+    });
+    reader.readAsDataURL(file);
+  });
+</script>
+<!-- Importing Footer -->
+<div th:insert="footer.html :: footer"></div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</body>
+</html>
