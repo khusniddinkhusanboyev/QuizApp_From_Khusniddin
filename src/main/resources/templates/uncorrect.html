@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
 <head>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,22 +12,27 @@
     <title>Natijalar</title>
 </head>
 <body>
-
 <!-- Importing NavBar -->
 <div th:insert="navbar.html :: navbar"></div>
-
 <!-- Main Container Start -->
 <div class="main-container container py-5 px-4">
     <h3 class="bg-danger text-center mb-5 p-2">Natijalar ro'yxati</h3>
-
     <table class="bg-dark text-light">
         <tr>
-            <th>Ismi</th>
-            <th>Natijasi</th>
+            <th>Rasmi</th>
+            <th>Test savoli</th>
+            <th>Javobi</th>
+            <th>Tanlagan javob</th>
         </tr>
         <tr th:each="score : ${sList}">
-            <td><a th:href="@{/user/}+ ${score.id}" th:text="${score.username}"></a></td>
-            <td th:text="${score.totalCorrect}"></td>
+            <td>
+                <div class="image-box" th:if="${score.imageUrl!=null}">
+                    <img th:src="@{${score.imageUrl}}">
+                </div>
+            </td>
+            <td th:text="${score.title}"></td>
+            <td th:text="${score.correctAnswer}"></td>
+
         </tr>
     </table>
 </div>
