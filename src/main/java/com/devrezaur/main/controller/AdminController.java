@@ -4,7 +4,6 @@ import com.devrezaur.main.dto.QuestionDTO;
 import com.devrezaur.main.mapper.MapToQuestionDTO;
 import com.devrezaur.main.model.Question;
 import com.devrezaur.main.service.impl.AdminServiceImpl;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -19,7 +18,7 @@ public class AdminController {
     }
 
 
-    @GetMapping
+    @GetMapping("/")
     public String addQuestion(Model model){
         model.addAttribute("new_ques" , new QuestionDTO());
         return "addquiz";

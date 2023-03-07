@@ -3,8 +3,8 @@ package com.devrezaur.main.model;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
-@Component
 
+@Component
 @Entity
 @Table(name = "uncorrect")
 public class UnCorrectAnswer {

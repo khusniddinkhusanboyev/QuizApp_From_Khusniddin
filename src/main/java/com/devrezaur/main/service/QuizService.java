@@ -13,16 +13,19 @@ import com.devrezaur.main.repository.ResultRepo;
 
 @Service
 public class QuizService {
-
-
-@Autowired
+    @Autowired
     private QuestionForm qForm;
     @Autowired
     private QuestionRepo qRepo;
+    @Autowired
+    private ResultRepo rRepo;
 
+    @Autowired
+    Question question;
 
-@Autowired
-  private   ResultRepo rRepo;
+    @Autowired
+    Result result;
+
 
     public QuestionForm getQuestions() {
         List<Question> allQues = qRepo.findAll();
@@ -90,6 +93,13 @@ public class QuizService {
 
         return sList;
     }
+
+
+
+
+
+
+
 
 
 }

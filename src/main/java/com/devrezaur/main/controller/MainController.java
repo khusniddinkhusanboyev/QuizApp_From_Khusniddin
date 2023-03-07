@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.devrezaur.main.model.UnCorrectAnswer;
 import com.devrezaur.main.service.UnCorrectAnswerService;
-
+import com.devrezaur.main.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,18 +17,24 @@ import com.devrezaur.main.service.QuizService;
 @Controller
 public class MainController {
     @Autowired
-   private QuizService qService;
-   @Autowired
-   private Result result;
+    QuizService qService;
     @Autowired
-   private UnCorrectAnswerService unCorrectAnswerService;
+    Result result;
+    @Autowired
+    UnCorrectAnswerService unCorrectAnswerService;
+    @Autowired
+    UserService userService;
 
-
+    //Boolean submitted = false;
     @GetMapping("/")
     public String home() {
         return "index.html";
     }
 
+    @GetMapping("/addquiz")
+    public String getAddQuiz() {
+        return "addquiz";
+    }
 
     @PostMapping("/quiz")
     public String quiz(@RequestParam String username, Model m, RedirectAttributes ra) {

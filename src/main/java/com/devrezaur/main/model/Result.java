@@ -1,19 +1,24 @@
 package com.devrezaur.main.model;
 
 import org.springframework.stereotype.Component;
+
 import javax.persistence.*;
-@Component
+
 @Entity
+@Component
 @Table(name = "results")
 public class Result {
-	@Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String username;
+
     private Integer totalCorrect = 0;
+
     public Result() {
 
     }
+
     public Result(Integer id, String username, int totalCorrect) {
         this.id = id;
         this.username = username;
@@ -24,7 +29,7 @@ public class Result {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -43,5 +48,4 @@ public class Result {
     public void setTotalCorrect(Integer totalCorrect) {
         this.totalCorrect = totalCorrect;
     }
-
 }
