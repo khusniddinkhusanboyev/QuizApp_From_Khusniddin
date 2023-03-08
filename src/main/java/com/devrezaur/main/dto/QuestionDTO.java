@@ -1,5 +1,8 @@
 package com.devrezaur.main.dto;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class QuestionDTO {
     private Integer quesId;
     private String imageUrl=null;
@@ -11,20 +14,19 @@ public class QuestionDTO {
     private Integer ans;
     private  Integer chose ;
 
-    public QuestionDTO(String imageUrl, String title, Integer ans, String optionA, String optionB, String optionC, String optionD, Integer chose) {
-    }
 
     public QuestionDTO() {
     }
 
-    public QuestionDTO(
-                       String imageUrl,
+
+    public QuestionDTO(String imageUrl,
                        String title,
+                       Integer ans,
                        String optionA,
                        String optionB,
                        String optionC,
                        String optionD,
-                       Integer ans) {
+                       Integer chose) {
         this.imageUrl = imageUrl;
         this.title = title;
         this.ans = ans;
@@ -32,7 +34,7 @@ public class QuestionDTO {
         this.optionB = optionB;
         this.optionC = optionC;
         this.optionD = optionD;
-        this.chose = -1;
+        this.chose = chose;
     }
 
     public QuestionDTO(
@@ -53,6 +55,22 @@ public class QuestionDTO {
         this.optionD = optionD;
         this.ans = ans;
 
+    }
+
+    public QuestionDTO(
+            String title,
+            String optionA,
+            String optionB,
+            String optionC,
+            String optionD,
+            Integer ans) {
+        this.title = title;
+        this.optionA = optionA;
+        this.optionB = optionB;
+        this.optionC = optionC;
+        this.optionD = optionD;
+        this.ans = ans;
+        this.chose = -1;
     }
 
     public Integer getQuesId() {

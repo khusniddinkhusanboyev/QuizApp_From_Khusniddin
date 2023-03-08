@@ -4,8 +4,8 @@ import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 
-@Entity
 @Component
+@Entity
 @Table(name = "results")
 public class Result {
     @Id

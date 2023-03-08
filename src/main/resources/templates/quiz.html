@@ -6,12 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap CSS -->
-<<<<<<< HEAD
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-=======
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet">
->>>>>>> github/main
+
     <link rel="stylesheet" th:href="@{/css/quiz.css}">
     <title>Test</title>
 
@@ -25,14 +21,13 @@
         </tr>
     </table>
 </form>-->
+
 <div th:insert="navbar.html :: navbar"></div>
- <div> User Name <span id="user-name"></span></div>
+<div type="hidden">Ismingiz <span id="user-name"></span></div>
 <div class="container py-5 px-4">
     <h1 class="bg-danger text-light">1- guruh</h1>
 
-
     <form action="submit" method="POST" th:object="${qForm}">
-
         <div class="ques-box bg-dark text-light" th:each="ques, i: ${qForm.questions}">
 
             <label class="title" th:text="${ques.title}"></label>
@@ -58,7 +53,6 @@
                 <input style="margin-right: 10px;" type="radio" th:name="|questions[${i.index}].chose|" th:value="4"/>
                 <label th:text="${ques.optionD}"></label>
             </div>
-
             <input type="hidden" th:name="|questions[${i.index}].quesId|" th:value="${ques.quesId}"/>
             <input type="hidden" th:name="|questions[${i.index}].title|" th:value="${ques.title}"/>
             <input type="hidden" th:name="|questions[${i.index}].ans|" th:value="${ques.ans}"/>
@@ -67,26 +61,27 @@
             <input type="hidden" th:name="|questions[${i.index}].optionB|" th:value="${ques.optionB}"/>
             <input type="hidden" th:name="|questions[${i.index}].optionC|" th:value="${ques.optionC}"/>
             <input type="hidden" th:name="|questions[${i.index}].optionD|" th:value="${ques.optionD}"/>
-
         </div>
-        <input type="hidden" th:name="user" id="user"  />
-        <button type="submit" class="btn text-white d-block mx-auto mt-4">Submit Answer</button>
+
+        <input type="hidden" th:name="user" id="user"/>
+        <input type="submit" class="btn text-white d-block mx-auto mt-4" value="Submit Answer"/>
     </form>
 </div>
 
 <!-- Bootstrap JS -->
-<script  th:inline="javascript">
+<script th:inline="javascript">
 
 
-        const userName =localStorage.getItem('user-name');
-        document.getElementById('user-name').textContent =userName;
-         document.getElementById('user').value =userName;
+    const userName = localStorage.getItem('user-name');
+    document.getElementById('user-name').textContent = userName;
+    document.getElementById('user').value = userName;
 
 </script>
-<<<<<<< HEAD
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-=======
->>>>>>> github/main
+
+<!--<script th:inline="javascript" th:src="@{/css/timer.js}">
+
+</script>-->
+
 
 <!-- Importing Footer -->
 <div th:insert="footer.html :: footer"></div>

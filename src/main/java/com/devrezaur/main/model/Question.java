@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 import org.springframework.stereotype.Component;
 
-@Component	
+@Component
 @Entity
 @Table(name = "questions")
 public class Question {
@@ -24,18 +24,49 @@ public class Question {
 	public Question() {
 	}
 
-	public Question(String imageUrl, String title, String optionA, String optionB, String optionC, String optionD, Integer ans, Integer chose) {
-		this.imageUrl = imageUrl;
+	public Question(Integer quesId,
+					String title,
+					String optionA,
+					String optionB,
+					String optionC,
+					String optionD,
+					Integer ans) {
+		this.quesId=quesId;
 		this.title = title;
 		this.optionA = optionA;
 		this.optionB = optionB;
 		this.optionC = optionC;
 		this.optionD = optionD;
 		this.ans = ans;
-		this.chose = chose;
+		this.chose = -1;
+
 	}
 
-	public Question(Integer quesId, String imageUrl, String title, String optionA, String optionB, String optionC, String optionD, Integer chose) {
+	public Question(
+					String title,
+					String optionA,
+					String optionB,
+					String optionC,
+					String optionD,
+					Integer ans) {
+
+		this.title = title;
+		this.optionA = optionA;
+		this.optionB = optionB;
+		this.optionC = optionC;
+		this.optionD = optionD;
+		this.ans = ans;
+		this.chose = -1;
+	}
+
+	public Question(Integer quesId,
+					String imageUrl,
+					String title,
+					String optionA,
+					String optionB,
+					String optionC,
+					String optionD,
+					Integer chose) {
 		this.quesId = quesId;
 		this.imageUrl = imageUrl;
 		this.title = title;
@@ -46,15 +77,24 @@ public class Question {
 		this.chose = chose;
 	}
 
-	public Question(String imageUrl, String title, String optionA, String optionB, String optionC, String optionD, Integer ans) {
-		this.imageUrl = imageUrl;
+/*
+	public Question( String title,
+					 String optionA,
+					 String optionB,
+					 String optionC,
+					 String optionD,
+					 Integer ans
+					) {
 		this.title = title;
 		this.optionA = optionA;
 		this.optionB = optionB;
 		this.optionC = optionC;
 		this.optionD = optionD;
 		this.ans = ans;
+		this.chose = -1;
 	}
+*/
+
 
 	public Integer getQuesId() {
 		return quesId;

@@ -1,7 +1,6 @@
 package com.devrezaur.main.controller;
 
 import com.devrezaur.main.dto.QuestionDTO;
-import com.devrezaur.main.mapper.MapToQuestionDTO;
 import com.devrezaur.main.model.Question;
 import com.devrezaur.main.service.impl.AdminServiceImpl;
 import org.springframework.stereotype.Controller;
@@ -11,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
-    MapToQuestionDTO  mapToQuestionDTO=new MapToQuestionDTO();
     private final AdminServiceImpl adminService;
     public AdminController(AdminServiceImpl adminService) {
         this.adminService = adminService;
@@ -24,11 +22,17 @@ public class AdminController {
         return "addquiz";
     }
 
-    @PostMapping("/questions")
+    @PostMapping("/admin/questions")
     public String save(@ModelAttribute("new_ques") QuestionDTO questionDTO ){
         adminService.save(new Question(
-                questionDTO.getImageUrl(),
                 questionDTO.getTitle(),
+                questionDTO.getOptionA(),
+                questionDTO.getOptionB(),
+                questionDTO.getOptionC(),
+                questionDTO.getOptionD(),
+                questionDTO.getAns()));
+        System.out.println(new Question(
+                questionDTO.getTitle() ,
                 questionDTO.getOptionA(),
                 questionDTO.getOptionB(),
                 questionDTO.getOptionC(),
@@ -62,16 +66,16 @@ public class AdminController {
     @PutMapping("/admin/edit")
     public String updateQues(@ModelAttribute("updateques") QuestionDTO questionDTO){
         System.err.println(adminService.save(new Question(
-                questionDTO.getImageUrl(),
-                questionDTO.getTitle(),
+                questionDTO.getQuesId(),
+                questionDTO.getTitle() ,
                 questionDTO.getOptionA(),
                 questionDTO.getOptionB(),
                 questionDTO.getOptionC(),
                 questionDTO.getOptionD(),
                 questionDTO.getAns())));
         adminService.save(adminService.save(new Question(
-                questionDTO.getImageUrl(),
-                questionDTO.getTitle(),
+                questionDTO.getQuesId(),
+                questionDTO.getTitle() ,
                 questionDTO.getOptionA(),
                 questionDTO.getOptionB(),
                 questionDTO.getOptionC(),
