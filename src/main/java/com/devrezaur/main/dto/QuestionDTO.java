@@ -12,13 +12,14 @@ public class QuestionDTO {
     private String optionC;
     private String optionD;
     private Integer ans;
-    private  Integer chose ;
+    private  Integer chose=-1 ;
 
 
     public QuestionDTO() {
     }
 
 
+    // for MapToQuestionDTO
     public QuestionDTO(String imageUrl,
                        String title,
                        Integer ans,
@@ -29,23 +30,41 @@ public class QuestionDTO {
                        Integer chose) {
         this.imageUrl = imageUrl;
         this.title = title;
-        this.ans = ans;
         this.optionA = optionA;
         this.optionB = optionB;
         this.optionC = optionC;
         this.optionD = optionD;
+        this.ans = ans;
         this.chose = chose;
     }
 
-    public QuestionDTO(
-            Integer quesId,
-            String imageUrl,
-            String title,
-            String optionA,
-            String optionB,
-            String optionC,
-            String optionD,
-            Integer ans) {
+    //to update existing details
+    public QuestionDTO(Integer quesId,
+                       String title,
+                       String optionA,
+                       String optionB,
+                       String optionC,
+                       String optionD,
+                       Integer ans) {
+        this.quesId = quesId;
+        this.title = title;
+        this.optionA = optionA;
+        this.optionB = optionB;
+        this.optionC = optionC;
+        this.optionD = optionD;
+        this.ans = ans;
+    }
+
+    // to receive detail related to toString Method
+    public QuestionDTO(Integer quesId,
+                       String imageUrl,
+                       String title,
+                       String optionA,
+                       String optionB,
+                       String optionC,
+                       String optionD,
+                       Integer ans,
+                       Integer chose) {
         this.quesId = quesId;
         this.imageUrl = imageUrl;
         this.title = title;
@@ -54,9 +73,10 @@ public class QuestionDTO {
         this.optionC = optionC;
         this.optionD = optionD;
         this.ans = ans;
-
+        this.chose = chose;
     }
 
+    //to save Question Entity
     public QuestionDTO(
             String title,
             String optionA,
@@ -70,7 +90,25 @@ public class QuestionDTO {
         this.optionC = optionC;
         this.optionD = optionD;
         this.ans = ans;
-        this.chose = -1;
+
+    }
+
+    public QuestionDTO(Integer quesId,
+                       String imageUrl,
+                       String title,
+                       String optionA,
+                       String optionB,
+                       String optionC,
+                       String optionD,
+                       Integer ans) {
+        this.quesId = quesId;
+        this.imageUrl = imageUrl;
+        this.title = title;
+        this.optionA = optionA;
+        this.optionB = optionB;
+        this.optionC = optionC;
+        this.optionD = optionD;
+        this.ans = ans;
     }
 
     public Integer getQuesId() {

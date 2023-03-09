@@ -46,6 +46,7 @@ public class AdminServiceImpl implements AdminService {
                 question.getOptionB(),
                 question.getOptionC(),
                 question.getOptionD(),
-                question.getAns());
+                question.getAns()
+        );
     }
 }

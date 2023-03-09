@@ -30,14 +30,16 @@ public class AdminController {
                 questionDTO.getOptionB(),
                 questionDTO.getOptionC(),
                 questionDTO.getOptionD(),
-                questionDTO.getAns()));
+                questionDTO.getAns(),
+                questionDTO.getChose()));
         System.out.println(new Question(
                 questionDTO.getTitle() ,
                 questionDTO.getOptionA(),
                 questionDTO.getOptionB(),
                 questionDTO.getOptionC(),
                 questionDTO.getOptionD(),
-                questionDTO.getAns()));
+                questionDTO.getAns(),
+                questionDTO.getChose()));
         return "redirect:/admin/listOfQuestion";
     }
 

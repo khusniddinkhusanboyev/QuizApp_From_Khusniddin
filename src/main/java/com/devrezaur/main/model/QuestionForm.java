@@ -2,7 +2,6 @@ package com.devrezaur.main.model;
 import java.util.List;
 import org.springframework.stereotype.Component;
 @Component
-
 public class QuestionForm {
 
 	private String user;

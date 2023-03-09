@@ -19,46 +19,12 @@ public class Question {
 	private String optionC;
 	private String optionD;
 	private Integer ans;
-	private  Integer chose;
+	private  Integer chose=-1;
 
 	public Question() {
 	}
 
-	public Question(Integer quesId,
-					String title,
-					String optionA,
-					String optionB,
-					String optionC,
-					String optionD,
-					Integer ans) {
-		this.quesId=quesId;
-		this.title = title;
-		this.optionA = optionA;
-		this.optionB = optionB;
-		this.optionC = optionC;
-		this.optionD = optionD;
-		this.ans = ans;
-		this.chose = -1;
-
-	}
-
-	public Question(
-					String title,
-					String optionA,
-					String optionB,
-					String optionC,
-					String optionD,
-					Integer ans) {
-
-		this.title = title;
-		this.optionA = optionA;
-		this.optionB = optionB;
-		this.optionC = optionC;
-		this.optionD = optionD;
-		this.ans = ans;
-		this.chose = -1;
-	}
-
+	//to get detail relevant toString() method
 	public Question(Integer quesId,
 					String imageUrl,
 					String title,
@@ -66,6 +32,7 @@ public class Question {
 					String optionB,
 					String optionC,
 					String optionD,
+					Integer ans,
 					Integer chose) {
 		this.quesId = quesId;
 		this.imageUrl = imageUrl;
@@ -74,27 +41,63 @@ public class Question {
 		this.optionB = optionB;
 		this.optionC = optionC;
 		this.optionD = optionD;
+		this.ans = ans;
 		this.chose = chose;
 	}
 
-/*
-	public Question( String title,
-					 String optionA,
-					 String optionB,
-					 String optionC,
-					 String optionD,
-					 Integer ans
-					) {
+	// for MapToQuestionDTO
+	public Question(String imageUrl,
+					   String title,
+					   String optionA,
+					   String optionB,
+					   String optionC,
+					   String optionD,
+					   Integer ans,
+					   Integer chose) {
+		this.imageUrl = imageUrl;
 		this.title = title;
 		this.optionA = optionA;
 		this.optionB = optionB;
 		this.optionC = optionC;
 		this.optionD = optionD;
 		this.ans = ans;
-		this.chose = -1;
+		this.chose = chose;
 	}
-*/
 
+
+	//to update existing question
+	public Question(Integer quesId,
+					String title,
+					String optionA,
+					String optionB,
+					String optionC,
+					String optionD,
+					Integer ans) {
+		this.quesId = quesId;
+		this.title = title;
+		this.optionA = optionA;
+		this.optionB = optionB;
+		this.optionC = optionC;
+		this.optionD = optionD;
+		this.ans = ans;
+	}
+
+	//to save new question
+	public Question(String title,
+					String optionA,
+					String optionB,
+					String optionC,
+					String optionD,
+					Integer ans,
+					Integer chose) {
+		this.title = title;
+		this.optionA = optionA;
+		this.optionB = optionB;
+		this.optionC = optionC;
+		this.optionD = optionD;
+		this.ans = ans;
+		this.chose = chose;
+	}
 
 	public Integer getQuesId() {
 		return quesId;
@@ -166,5 +169,20 @@ public class Question {
 
 	public void setChose(Integer chose) {
 		this.chose = chose;
+	}
+
+	@Override
+	public String toString() {
+		return "Question{" +
+				"quesId=" + quesId +
+				", imageUrl='" + imageUrl + '\'' +
+				", title='" + title + '\'' +
+				", optionA='" + optionA + '\'' +
+				", optionB='" + optionB + '\'' +
+				", optionC='" + optionC + '\'' +
+				", optionD='" + optionD + '\'' +
+				", ans=" + ans +
+				", chose=" + chose +
+				'}';
 	}
 }

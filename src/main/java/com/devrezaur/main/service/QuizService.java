@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import com.devrezaur.main.dto.QuestionDTO;
 import com.devrezaur.main.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
@@ -20,9 +21,9 @@ public class QuizService {
     @Autowired
     private ResultRepo rRepo;
 
-    @Autowired
+    /*@Autowired
     Question question;
-
+*/
     @Autowired
     Result result;
 
@@ -76,6 +77,7 @@ public class QuizService {
     }
 
     public String getAnswerString(Question question) {
+        System.err.println(question);
         return switch (question.getChose()) {
             case 1 -> question.getOptionA();
             case 2 -> question.getOptionB();
