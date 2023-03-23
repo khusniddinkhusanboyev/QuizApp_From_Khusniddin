@@ -16,11 +16,11 @@
 <div th:insert="navbar.html :: navbar"></div>
 
 <!-- Main Container Start -->
-<div class="main-container container py-5 px-4">
-    <div class="card bg-dark text-light py-5 px-4 mx-auto">
-        <img th:src="@{/images/exam.svg}" alt="image">
+<div class="main-container container py-5 px-1">
+    <div class="card bg-dark text-light py-5 px-5 mx-auto ">
+        <img th:src="@{/images/img_3.png}" class="rounded-pill" alt="image">
 
-        <h3 class="bg-danger text-center mb-5 p-2">Sizning natijangiz</h3>
+        <h3 class="bg-warning text-center mb-5 p-2">Sizning natijangiz</h3>
 
         <div class="d-flex justify-content-center">
             <p>Ismingiz:</p>
@@ -39,10 +39,10 @@
                 -->
 
         <div class="d-flex justify-content-center mt-4">
-            <button type="button" th:onclick="window.location.href='/score'"
+            <button type="button" th:onclick="window.location.href='/login/score'"
                     class="btn btn-outline-warning mx-auto">View Score Board
             </button>
-            <button type="button" th:onclick="window.location.href='/'"
+            <button type="button" th:onclick="window.location.href='/login'"
                     class="btn btn-outline-warning mx-auto">Back to Homepage
             </button>
         </div>

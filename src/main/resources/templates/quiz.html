@@ -25,16 +25,18 @@
 <div th:insert="navbar.html :: navbar"></div>
 <div type="hidden">Ismingiz <span id="user-name"></span></div>
 <div class="container py-5 px-4">
-    <h1 class="bg-danger text-light">1- guruh</h1>
+    <h1 class="bg-danger text-light">Test</h1>
 
     <form action="submit" method="POST" th:object="${qForm}">
         <div class="ques-box bg-dark text-light" th:each="ques, i: ${qForm.questions}">
+
 
             <label class="title" th:text="${ques.title}"></label>
 
             <div class="image-box" th:if="${ques.imageUrl!=null}">
                 <img th:src="@{${ques.imageUrl}}" alt="image">
             </div>
+
 
             <div class="option">
                 <input style="margin-right: 10px;" type="radio" th:name="|questions[${i.index}].chose|" th:value="1"/>
@@ -64,7 +66,7 @@
         </div>
 
         <input type="hidden" th:name="user" id="user"/>
-        <input type="submit" class="btn text-white d-block mx-auto mt-4" value="Submit Answer"/>
+        <input type="submit" class="btn btn-warning  d-block mx-auto mt-4" value="Submit Answer"/>
     </form>
 </div>
 

@@ -4,6 +4,9 @@
 	box-sizing: border-box;
 }
 
+.bg-danger {
+    background-color: #212529 !important;
+}
 body {
 	width: 100%;
 	overflow-x: hidden;
@@ -11,11 +14,7 @@ body {
 
 
 button {
-<<<<<<< HEAD
-  /*background-color: #4CAF50 !important;*/ /* Green */
-=======
-  background-color: #4CAF50 !important; /* Green */
->>>>>>> github/main
+ /* background-color: #4CAF50 !important;  Green */
   border: none;
   color: white;
   padding: 20px;
@@ -61,7 +60,7 @@ width: 100%;
 .title {
 	font-size: 22px;
 	font-weight: 500;
-	color: red;
+	color: #ffe000;
 }
 
 .option p {

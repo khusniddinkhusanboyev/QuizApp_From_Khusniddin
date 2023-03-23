@@ -1,4 +1,4 @@
-package com.devrezaur.main.service;
+package com.devrezaur.main.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;

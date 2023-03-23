@@ -1,4 +1,4 @@
-package com.devrezaur.main.service;
+package com.devrezaur.main.service.impl;
 
 import com.devrezaur.main.model.UnCorrectAnswer;
 import com.devrezaur.main.repository.UnCorrectAnswerRepository;

@@ -8,7 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/admin")
+@RequestMapping("/login/admin_valid/admin")
 public class AdminController {
     private final AdminServiceImpl adminService;
     public AdminController(AdminServiceImpl adminService) {
@@ -22,7 +22,7 @@ public class AdminController {
         return "addquiz";
     }
 
-    @PostMapping("/admin/questions")
+    @PostMapping("/questions")
     public String save(@ModelAttribute("new_ques") QuestionDTO questionDTO ){
         adminService.save(new Question(
                 questionDTO.getTitle(),
@@ -40,7 +40,7 @@ public class AdminController {
                 questionDTO.getOptionD(),
                 questionDTO.getAns(),
                 questionDTO.getChose()));
-        return "redirect:/admin/listOfQuestion";
+        return "redirect:/login/admin_valid/admin/listOfQuestion";
     }
 
     @GetMapping("/listOfQuestion")
@@ -53,19 +53,19 @@ public class AdminController {
         return "admin/listOfQuestion";
     }
 
-    @GetMapping("admin/delete/{id}")
+    @GetMapping("/delete/{id}")
     public String delete(@PathVariable("id") Integer id){
         adminService.delete(id);
-        return "redirect:/admin/listOfQuestion";
+        return "redirect:/login/admin_valid/admin/listOfQuestion";
     }
 
-    @GetMapping("admin/edit/{id}")
+    @GetMapping("/edit/{id}")
     public String edit(@PathVariable("id") Integer id, Model model){
         model.addAttribute("updateques" , adminService.findById(id));
         return "admin/update_ques";
     }
 
-    @PutMapping("/admin/edit")
+    @PutMapping("/edit")
     public String updateQues(@ModelAttribute("updateques") QuestionDTO questionDTO){
         System.err.println(adminService.save(new Question(
                 questionDTO.getQuesId(),
@@ -83,7 +83,7 @@ public class AdminController {
                 questionDTO.getOptionC(),
                 questionDTO.getOptionD(),
                 questionDTO.getAns())));
-        return "redirect:/admin/listOfQuestion";
+        return "redirect:/login/admin_valid/admin/listOfQuestion";
     }
 
 

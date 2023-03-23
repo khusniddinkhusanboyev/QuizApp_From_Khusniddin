@@ -15,23 +15,23 @@
 <body>
 
 <!-- Importing NavBar -->
-<div th:insert="navbar.html :: navbar"></div>
+<div th:insert="adminnavbar.html :: navbar"></div>
 
 <!-- Main Container Start -->
 <div class="main-container container py-5 px-4">
     <div class="image-box">
-        <img th:src="@{/images/exam.svg}" alt="image">
+        <img th:src="@{/images/img_5.png}" alt="image">
     </div>
     <div class="text-box">
         <h1 class="mb-5 text-center">Add Quiz</h1>
 
-        <form th:action="@{/admin/admin/questions}" enctype="multipart/form-data" th:object="${new_ques}" th:method="post"
+        <form th:action="@{/login/admin_valid/admin/questions}" enctype="multipart/form-data" th:object="${new_ques}"
+              th:method="post"
               class="card bg-dark py-5 px-4">
-            <!--<input type="file" id="image-upload" accept="image/*">-->
-            <!-- <img id="image-preview" hidden="hidden" class="p-2" src="#" width="200px" height="200px"/>
-             <input type="file" class="form-control" th:field="*{imageUrl}" id="image-upload" accept="image/*" name="image"/>
-           -->   <!-- <input type="text" class="form-control" th:field="*{title}"  name="title"/>
-    -->
+         <!--   <input type="file" id="image-upload" accept="image/*">-->
+           <!-- <img id="image-preview" hidden="hidden" class="p-2" src="#" width="200px" height="200px"/>
+            <input type="file" class="form-control" th:field="*{imageUrl}" id="image-upload" accept="image/*"
+                   name="image"/>-->
             <div class="form-floating">
                 <textarea type="text" class="form-control" th:field="*{title}" placeholder="Leave a comment here"
                           id="floatingTextarea2" style="height: 100px"></textarea>
@@ -78,6 +78,7 @@
 
     reader.readAsDataURL(file);
   });
+
 
 
 </script>
